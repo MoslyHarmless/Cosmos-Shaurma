@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КОСМОС | Шаурма • Кафе | Житомир</title>
+    <meta name="description" content="КОСМОС Шаурма • Кафе в Житомирі. Гаряче, щедро, без зайвих церемоній. Самовивіз з Київської, 78.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="brand">
+                <span class="brand-name">КОСМОС</span>
+                <span class="brand-sub">Шаурма • Кафе</span>
+            </a>
+            <nav class="main-nav">
+                <a href="#menu">Меню</a>
+                <a href="#location">Де ми</a>
+                <a href="#how-to">Як замовити</a>
+            </nav>
+            <button id="cart-btn" class="cart-btn" aria-label="Відкрити кошик" aria-expanded="false" aria-controls="cart-dialog">
+                Кошик <span id="cart-count" class="cart-count" aria-live="polite">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Гаряче, щедро, <br>без зайвих церемоній</h1>
+                <p>Житомир · Твій космічний перекус вже тут</p>
+                <div class="hero-actions">
+                    <a href="#menu" class="btn btn-primary">Відкрити меню</a>
+                    <a href="#menu" class="btn btn-secondary">Зібрати замовлення</a>
+                </div>
+            </div>
+            <div class="hero-bg-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden;">
+                <img src="assets/food-platter.webp" alt="Апетитні страви КОСМОС" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9,11,16,0.5) 0%, rgba(9,11,16,1) 100%);"></div>
+            </div>
+            <div class="hero-bg"></div>
+        </section>
+
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <h2>Меню</h2>
+
+                <div class="menu-controls">
+                    <div class="search-wrapper">
+                        <input type="search" id="menu-search" placeholder="Пошук страв..." aria-label="Пошук по меню">
+                    </div>
+                    <div class="category-chips" role="tablist" aria-label="Категорії меню">
+                        <button class="chip active" role="tab" aria-selected="true" data-filter="shawarma">Шаурма</button>
+                        <button class="chip" role="tab" aria-selected="false" data-filter="hotdogs">Хот-доги</button>
+                        <button class="chip" role="tab" aria-selected="false" data-filter="fastfood">Фаст-фуд</button>
+                        <button class="chip" role="tab" aria-selected="false" data-filter="pizza">Піца та випічка</button>
+                        <button class="chip" role="tab" aria-selected="false" data-filter="drinks">Напої</button>
+                    </div>
+                </div>
+
+                <div class="menu-grid" id="menu-grid">
+                    <!-- Category: Shawarma -->
+                    <article class="menu-item" data-category="shawarma" data-price="150" data-name="Куряча Маленька (Шаурма)">
+                        <div class="item-info">
+                            <h3>Куряча (Маленька)</h3>
+                            <div class="price">150 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Куряча Маленька">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="170" data-name="Куряча Середня (Шаурма)">
+                        <div class="item-info">
+                            <h3>Куряча (Середня) <span class="badge">Топ</span></h3>
+                            <div class="price">170 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Куряча Середня">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="205" data-name="Куряча Велика (Шаурма)">
+                        <div class="item-info">
+                            <h3>Куряча (Велика)</h3>
+                            <div class="price">205 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Куряча Велика">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="230" data-name="Куряча Гавайська (Шаурма)">
+                        <div class="item-info">
+                            <h3>Куряча Гавайська</h3>
+                            <div class="price">230 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Куряча Гавайська">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="170" data-name="Свинина Маленька (Шаурма)">
+                        <div class="item-info">
+                            <h3>Свинина (Маленька)</h3>
+                            <div class="price">170 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Свинина Маленька">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="190" data-name="Свинина Середня (Шаурма)">
+                        <div class="item-info">
+                            <h3>Свинина (Середня)</h3>
+                            <div class="price">190 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Свинина Середня">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="shawarma" data-price="230" data-name="Свинина Велика (Шаурма)">
+                        <div class="item-info">
+                            <h3>Свинина (Велика)</h3>
+                            <div class="price">230 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Свинина Велика">Обрати</button>
+                    </article>
+
+                    <!-- Category: Hotdogs -->
+                    <article class="menu-item" data-category="hotdogs" data-price="85" data-name="Французький хот-дог">
+                        <div class="item-info">
+                            <h3>Французький</h3>
+                            <div class="price">85 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Французький хот-дог">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="100" data-name="Хот-дог «2000-х»">
+                        <div class="item-info">
+                            <h3>Хот-дог «2000-х»</h3>
+                            <div class="price">100 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Хот-дог «2000-х»">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="110" data-name="З однією сосискою">
+                        <div class="item-info">
+                            <h3>З однією сосискою</h3>
+                            <div class="price">110 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати З однією сосискою">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="140" data-name="З двома сосисками">
+                        <div class="item-info">
+                            <h3>З двома сосисками</h3>
+                            <div class="price">140 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати З двома сосисками">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="140" data-name="Баварський (лаваш, 1 сосиска)">
+                        <div class="item-info">
+                            <h3>Баварський (лаваш, 1 сосиска)</h3>
+                            <div class="price">140 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Баварський з 1 сосискою">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="170" data-name="Баварський (лаваш, 2 сосиски)">
+                        <div class="item-info">
+                            <h3>Баварський (лаваш, 2 сосиски)</h3>
+                            <div class="price">170 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Баварський з 2 сосисками">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="180" data-name="Хот-дог (сирний у лаваші)">
+                        <div class="item-info">
+                            <h3>Хот-дог (сирний у лаваші)</h3>
+                            <div class="price">180 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Сирний хот-дог">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="hotdogs" data-price="220" data-name="Шаур-дог">
+                        <div class="item-info">
+                            <h3>Шаур-дог</h3>
+                            <div class="price">220 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Шаур-дог">Обрати</button>
+                    </article>
+
+                    <!-- Category: Fast food -->
+                    <article class="menu-item" data-category="fastfood" data-price="85" data-name="Картопля фрі (170 г)">
+                        <div class="item-info">
+                            <h3>Картопля фрі (170 г)</h3>
+                            <div class="price">85 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Картопля фрі">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="fastfood" data-price="110" data-name="Нагетси (6 шт)">
+                        <div class="item-info">
+                            <h3>Нагетси (6 шт)</h3>
+                            <div class="price">110 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Нагетси">Обрати</button>
+                    </article>
+
+                    <!-- Category: Pizza -->
+                    <article class="menu-item" data-category="pizza" data-price="125" data-name="Піца">
+                        <div class="item-info">
+                            <h3>Піца</h3>
+                            <div class="price">125 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Піца">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="pizza" data-price="70" data-name="Сосиска в тісті">
+                        <div class="item-info">
+                            <h3>Сосиска в тісті</h3>
+                            <div class="price">70 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Сосиска в тісті">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="pizza" data-price="50" data-name="Біляш">
+                        <div class="item-info">
+                            <h3>Біляш</h3>
+                            <div class="price">50 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Біляш">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="pizza" data-price="40" data-name="Булочка (капуста/картопля)">
+                        <div class="item-info">
+                            <h3>Булочка (капуста/картопля)</h3>
+                            <div class="price">40 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Булочка">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="pizza" data-price="35" data-name="Тертий пиріг (100 г)">
+                        <div class="item-info">
+                            <h3>Тертий пиріг (100 г)</h3>
+                            <div class="price">35 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Тертий пиріг">Обрати</button>
+                    </article>
+                    <article class="menu-item" data-category="pizza" data-price="40" data-name="Булочка з повидлом">
+                        <div class="item-info">
+                            <h3>Булочка з повидлом</h3>
+                            <div class="price">40 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Обрати Булочка з повидлом">Обрати</button>
+                    </article>
+
+                    <!-- Category: Drinks -->
+                    <article class="menu-item" data-category="drinks" data-price="55" data-name="Гарячий шоколад (з маршмелоу)">
+                        <div class="item-info">
+                            <h3>Гарячий шоколад <span style="font-size:0.75rem;font-weight:400;color:var(--text-muted);display:block;">з маршмелоу</span></h3>
+                            <div class="price">55 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Гарячий шоколад">Додати</button>
+                    </article>
+                    <article class="menu-item" data-category="drinks" data-price="85" data-name="Bumble кава">
+                        <div class="item-info">
+                            <h3>Bumble кава</h3>
+                            <div class="price">85 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Bumble кава">Додати</button>
+                    </article>
+                    <article class="menu-item" data-category="drinks" data-price="90" data-name="Голуба лагуна (0,5 л)">
+                        <div class="item-info">
+                            <h3>Голуба лагуна (0,5 л)</h3>
+                            <div class="price">90 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Голуба лагуна">Додати</button>
+                    </article>
+                    <article class="menu-item" data-category="drinks" data-price="90" data-name="Мохіто (0,5 л)">
+                        <div class="item-info">
+                            <h3>Мохіто (0,5 л)</h3>
+                            <div class="price">90 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Мохіто">Додати</button>
+                    </article>
+                    <article class="menu-item" data-category="drinks" data-price="90" data-name="Лимонад полуниця (0,5 л)">
+                        <div class="item-info">
+                            <h3>Лимонад полуниця (0,5 л)</h3>
+                            <div class="price">90 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Лимонад полуниця">Додати</button>
+                    </article>
+                    <article class="menu-item" data-category="drinks" data-price="90" data-name="Лимонад манго-маракуя (0,5 л)">
+                        <div class="item-info">
+                            <h3>Лимонад манго-маракуя (0,5 л)</h3>
+                            <div class="price">90 ₴</div>
+                        </div>
+                        <button class="btn-add" aria-label="Додати Лимонад манго-маракуя">Додати</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+                <div class="container">
+                    <p class="eyebrow">З кухні — просто в кадр</p>
+                    <h2>Справжній КОСМОС</h2>
+                    <p class="gallery-intro">Те, що готуємо для вас щодня: гаряче, щедро і без фотошопу.</p>
+                </div>
+                <div class="container gallery-grid gallery-grid-container">
+                    <figure class="gallery-item">
+                        <img src="assets/pizza.webp" alt="Свіжа гаряча піца з хрусткою скоринкою" loading="lazy">
+                        <figcaption>Свіжа гаряча піца прямісінько з печі</figcaption>
+                    </figure>
+                    <figure class="gallery-item">
+                        <img src="assets/entrance.webp" alt="Вхід до кафе КОСМОС на вулиці Київській" loading="lazy">
+                        <figcaption>Чекаємо на вас щодня на Київській, 78</figcaption>
+                    </figure>
+                </div>
+        </section>
+
+        <section id="location" class="location-section">
+            <div class="container location-grid">
+                <div>
+                    <p class="eyebrow">Точка приземлення</p>
+                    <h2>Забирай на Київській</h2>
+                    <p class="location-copy">Вулиця Київська, 78, Житомир, Житомирська область, 10001</p>
+                    <div class="location-actions">
+                        <a class="btn btn-primary" href="https://maps.app.goo.gl/m3AHJ3AFYH8MX4W39" target="_blank" rel="noopener">Відкрити мапу</a>
+                        <a class="btn btn-telegram" href="https://t.me/moslyharmless" target="_blank" rel="noopener"><span class="telegram-mark" aria-hidden="true">➤</span> Написати в Telegram</a>
+                    </div>
+                </div>
+                <a class="map-card" href="https://maps.app.goo.gl/m3AHJ3AFYH8MX4W39" target="_blank" rel="noopener" aria-label="Відкрити адресу КОСМОС на Google Maps">
+                    <span class="map-pin">✦</span>
+                    <span>Київська, 78</span>
+                    <small>Житомир · Google Maps ↗</small>
+                </a>
+            </div>
+        </section>
+
+        <section id="how-to" class="how-to-section">
+            <div class="container">
+                <h2>Як замовити</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h3>Обери страви</h3>
+                        <p>Додай улюблену шаурму та напої до кошика.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h3>Оформи замовлення</h3>
+                        <p>Вкажи ім'я та час для самовивозу.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h3>Забери гарячим</h3>
+                        <p>Забери замовлення за адресою: Київська, 78.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="brand-footer">КОСМОС</div>
+            <p>Житомир · гаряче, щедро, без зайвих церемоній</p>
+            <p><a class="footer-telegram" href="https://t.me/moslyharmless" target="_blank" rel="noopener"><span aria-hidden="true">➤</span> Telegram · @moslyharmless</a> · <a href="https://maps.app.goo.gl/m3AHJ3AFYH8MX4W39" target="_blank" rel="noopener">Київська, 78 ↗</a></p>
+            <p class="demo-notice">Увага: це демонстраційний сайт (демо-версія). Створено виключно для показу.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Dialog -->
+    <dialog id="cart-dialog" class="modal" aria-labelledby="cart-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="cart-title">Кошик</h2>
+                <button class="close-btn" id="close-cart" aria-label="Закрити кошик">&times;</button>
+            </div>
+            <div class="modal-body" id="cart-items">
+                <p class="empty-cart-msg">Твій кошик порожній. Пора це виправити!</p>
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">Разом: <span id="cart-total-price" class="text-accent">0</span> ₴</div>
+                <button id="checkout-btn" class="btn btn-primary btn-block" disabled>Оформити замовлення</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Checkout Dialog -->
+    <dialog id="checkout-dialog" class="modal" aria-labelledby="checkout-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="checkout-title">Оформлення (Демо)</h2>
+                <button class="close-btn" id="close-checkout" aria-label="Закрити оформлення">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="name">Ім'я</label>
+                        <input type="text" id="name" name="name" required autocomplete="name" placeholder="На кого оформити?">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <!-- Basic pattern for UA phone formats -->
+                        <input type="tel" id="phone" name="phone" required pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" autocomplete="tel" placeholder="+380...">
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Побажання / Час самовивозу</label>
+                        <textarea id="note" name="note" rows="2" placeholder="Наприклад: Заберу о 18:30"></textarea>
+                    </div>
+                    <p class="form-notice">Увага: це демо-форма. Ваші дані нікуди не відправляються і не зберігаються.</p>
+                    <button type="submit" class="btn btn-primary btn-block">Підтвердити замовлення</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Success Dialog -->
+    <dialog id="success-dialog" class="modal" aria-labelledby="success-title">
+        <div class="modal-content text-center">
+            <h2 id="success-title" class="text-accent" style="margin-bottom:1rem; font-size:2rem;">Космічно!</h2>
+            <p>Ваше замовлення успішно створено (демо).</p>
+            <p style="color:var(--text-muted); font-size:0.875rem; margin-top:0.5rem;">Дякуємо за тестування інтерфейсу.</p>
+            <button id="close-success" class="btn btn-primary btn-block mt-4">Повернутися до меню</button>
+        </div>
+    </dialog>
+
+    <!-- Product Customization Dialog -->
+    <dialog id="product-dialog" class="modal" aria-labelledby="product-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="product-title">Назва</h2>
+                <button class="close-btn" id="close-product" aria-label="Закрити">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-visual">
+                    <img id="product-image" src="assets/food-platter.webp" alt="Обрана страва КОСМОС">
+                </div>
+                <div class="product-price-row">
+                    <span class="price-wrap"><span id="product-price-display">0</span> ₴</span>
+                    <div class="qty-controls">
+                        <button type="button" class="qty-btn" id="product-qty-minus" aria-label="Зменшити кількість">-</button>
+                        <span class="qty-value" id="product-qty">1</span>
+                        <button type="button" class="qty-btn" id="product-qty-plus" aria-label="Збільшити кількість">+</button>
+                    </div>
+                </div>
+
+                <div id="product-addons-section">
+                    <h3>Додати до шаурми</h3>
+                    <div class="addons-list">
+                        <label class="addon-label">
+                            <span class="addon-label-inner">
+                                <input type="checkbox" name="addon" value="Сир" data-price="25">
+                                Сир
+                            </span>
+                            <span class="addon-price">+25 ₴</span>
+                        </label>
+                        <label class="addon-label">
+                            <span class="addon-label-inner">
+                                <input type="checkbox" name="addon" value="Гриби" data-price="25">
+                                Гриби
+                            </span>
+                            <span class="addon-price">+25 ₴</span>
+                        </label>
+                        <label class="addon-label">
+                            <span class="addon-label-inner">
+                                <input type="checkbox" name="addon" value="Ананас" data-price="25">
+                                Ананас
+                            </span>
+                            <span class="addon-price">+25 ₴</span>
+                        </label>
+                        <label class="addon-label">
+                            <span class="addon-label-inner">
+                                <input type="checkbox" name="addon" value="Кукурудза" data-price="25">
+                                Кукурудза
+                            </span>
+                            <span class="addon-price">+25 ₴</span>
+                        </label>
+                        <label class="addon-label">
+                            <span class="addon-label-inner">
+                                <input type="checkbox" name="addon" value="Картопля фрі" data-price="25">
+                                Картопля фрі
+                            </span>
+                            <span class="addon-price">+25 ₴</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="add-to-cart-btn" class="btn btn-primary btn-block">Додати — <span id="product-total-price">0</span> ₴</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
