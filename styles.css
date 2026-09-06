@@ -272,32 +272,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .gallery-item figcaption { padding: 1rem; background: var(--surface-light); color: var(--text-muted); font-size: 0.875rem; text-align: center; }
 
 
-/* Product Customization */
-.product-modal { width: 800px; max-width: 95vw; }
-.product-modal-body { display: flex; flex-direction: row; padding: 0; }
-.product-modal-left { flex: 1.1; display: flex; flex-direction: column; border-right: 1px solid var(--border); }
-.product-modal-right { flex: 0.9; padding: 1.5rem; background: var(--surface-light); overflow-y: auto; max-height: 60vh; }
-.product-visual { margin: 0; border: none; border-bottom: 1px solid var(--border); }
-.product-visual img { width: 100%; height: 320px; object-fit: cover; border-top-left-radius: 16px; }
-.product-desc-row { padding: 1.5rem; }
-.product-description { color: var(--text-muted); font-size: 1.05rem; line-height: 1.5; margin-bottom: 1rem; }
-.product-modal-footer { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-top: 1px solid var(--border); background: var(--surface); gap: 1rem; }
-.product-add-btn { flex: 1; }
-.addon-label { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 0.75rem 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); min-height: 44px; transition: border-color 0.2s; margin-bottom: 0.75rem; }
-.addon-label:hover { border-color: var(--text-muted); }
-.addon-label-inner { display: flex; align-items: center; gap: 0.75rem; font-weight: 600; }
-.addon-label input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent-primary); }
-.addon-price { color: var(--text-muted); font-size: 0.9rem; font-weight: 700; }
-
-@media (max-width: 768px) {
-    .product-modal-body { flex-direction: column; }
-    .product-modal-left { border-right: none; }
-    .product-visual img { height: 220px; border-top-right-radius: 16px; }
-    .product-modal-right { max-height: none; padding: 1.25rem; }
-    .product-modal-footer { flex-direction: column; }
-    .product-add-btn { width: 100%; }
-}
-
 /* Cosmos street-food refresh */
 :root {
     --bg: #111212;
@@ -429,6 +403,11 @@ body { background: var(--bg); }
 .product-description { color: var(--text-muted); font-size: .95rem; line-height: 1.55; margin: 0; }
 .price-wrap { color: var(--accent-yellow); font-size: 1.25rem; font-weight: 800; white-space: nowrap; }
 .product-modal-right { min-width: 0; }
+.addons-list { display: flex; flex-direction: column; gap: .75rem; }
+.addon-label { display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; background: var(--surface-light); transition: border-color .2s, background .2s; }
+.addon-label-inner { display: flex; align-items: center; gap: .75rem; font-weight: 600; }
+.addon-label input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent-cyan); }
+.addon-price { color: var(--text-muted); font-size: .9rem; font-weight: 700; }
 .product-modal-right h3 { font-size: 1rem; margin-bottom: 1rem; text-transform: none; letter-spacing: 0; }
 .addon-label { background: var(--surface-light); transition: border-color .2s, background .2s; }
 .addon-label:hover, .addon-label:has(input:checked) { border-color: var(--accent-cyan); background: rgba(0,229,255,.08); }
