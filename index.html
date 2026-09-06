@@ -403,68 +403,37 @@
     </dialog>
 
     <!-- Product Customization Dialog -->
-    <dialog id="product-dialog" class="modal" aria-labelledby="product-title">
+    <dialog id="product-dialog" class="modal product-modal" aria-labelledby="product-title">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 id="product-title">Назва</h2>
                 <button class="close-btn" id="close-product" aria-label="Закрити">&times;</button>
             </div>
-            <div class="modal-body">
-                <div class="product-visual">
-                    <img id="product-image" src="assets/food-platter.webp" alt="Обрана страва КОСМОС">
-                </div>
-                <div class="product-price-row">
-                    <span class="price-wrap"><span id="product-price-display">0</span> ₴</span>
-                    <div class="qty-controls">
-                        <button type="button" class="qty-btn" id="product-qty-minus" aria-label="Зменшити кількість">-</button>
-                        <span class="qty-value" id="product-qty">1</span>
-                        <button type="button" class="qty-btn" id="product-qty-plus" aria-label="Збільшити кількість">+</button>
+            <div class="modal-body product-modal-body">
+                <div class="product-modal-left">
+                    <div class="product-visual">
+                        <img id="product-image" src="assets/food-platter.webp" alt="Обрана страва КОСМОС">
+                    </div>
+                    <div class="product-desc-row">
+                        <p id="product-description" class="product-description"></p>
+                        <span class="price-wrap"><span id="product-price-display">0</span> ₴</span>
                     </div>
                 </div>
 
-                <div id="product-addons-section">
-                    <h3>Додати до шаурми</h3>
-                    <div class="addons-list">
-                        <label class="addon-label">
-                            <span class="addon-label-inner">
-                                <input type="checkbox" name="addon" value="Сир" data-price="25">
-                                Сир
-                            </span>
-                            <span class="addon-price">+25 ₴</span>
-                        </label>
-                        <label class="addon-label">
-                            <span class="addon-label-inner">
-                                <input type="checkbox" name="addon" value="Гриби" data-price="25">
-                                Гриби
-                            </span>
-                            <span class="addon-price">+25 ₴</span>
-                        </label>
-                        <label class="addon-label">
-                            <span class="addon-label-inner">
-                                <input type="checkbox" name="addon" value="Ананас" data-price="25">
-                                Ананас
-                            </span>
-                            <span class="addon-price">+25 ₴</span>
-                        </label>
-                        <label class="addon-label">
-                            <span class="addon-label-inner">
-                                <input type="checkbox" name="addon" value="Кукурудза" data-price="25">
-                                Кукурудза
-                            </span>
-                            <span class="addon-price">+25 ₴</span>
-                        </label>
-                        <label class="addon-label">
-                            <span class="addon-label-inner">
-                                <input type="checkbox" name="addon" value="Картопля фрі" data-price="25">
-                                Картопля фрі
-                            </span>
-                            <span class="addon-price">+25 ₴</span>
-                        </label>
+                <div class="product-modal-right" id="product-addons-section">
+                    <h3 id="addons-title" style="font-size: 1rem; margin-bottom: 1rem;">Додатки</h3>
+                    <div class="addons-list" id="addons-list-container">
+                        <!-- Populated by JS -->
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button id="add-to-cart-btn" class="btn btn-primary btn-block">Додати — <span id="product-total-price">0</span> ₴</button>
+            <div class="modal-footer product-modal-footer">
+                <div class="qty-controls">
+                    <button type="button" class="qty-btn" id="product-qty-minus" aria-label="Зменшити кількість">-</button>
+                    <span class="qty-value" id="product-qty">1</span>
+                    <button type="button" class="qty-btn" id="product-qty-plus" aria-label="Збільшити кількість">+</button>
+                </div>
+                <button id="add-to-cart-btn" class="btn btn-primary product-add-btn">Додати в кошик — <span id="product-total-price">0</span> ₴</button>
             </div>
         </div>
     </dialog>

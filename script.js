@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const productPriceDisplay = document.getElementById('product-price-display');
     const productQtyDisplay = document.getElementById('product-qty');
     const addonsSection = document.getElementById('product-addons-section');
-    const addonsCheckboxes = document.querySelectorAll('input[name="addon"]');
+    let addonsCheckboxes = [];
     const productTotalPriceDisplay = document.getElementById('product-total-price');
 
     // Filter Logic
@@ -115,38 +115,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Product Customization Logic
     document.querySelectorAll('.btn-add').forEach(btn => {
-        const article = btn.closest('.menu-item');
-        if (article.dataset.category !== 'shawarma') {
-            btn.textContent = 'Додати';
-            btn.setAttribute('aria-label', `Додати ${article.dataset.name}`);
-        }
         btn.addEventListener('click', (e) => {
             const article = e.target.closest('.menu-item');
             const name = article.dataset.name;
             const price = parseInt(article.dataset.price);
             const category = article.dataset.category;
 
-            if (category !== 'shawarma') {
-                addToCart(name, price, [], 1);
-                return;
-            }
             openProductDialog(name, price, category);
         });
     });
+
+    const itemDescriptions = {
+        'Куряча Маленька': 'Ніжне куряче м\'ясо, свіжа капуста, морква по-корейськи, солений огірок, фірмовий білий та червоний соус у хрусткому лаваші.',
+        'Куряча Середня': 'Класична порція з ніжним курячим м\'ясом, капустою, морквою, огірочком та фірмовими соусами.',
+        'Куряча Велика': 'Щедра порція для справжнього голоду. Більше м\'яса, більше свіжих овочів, більше соусу.',
+        'Куряча Гавайська': 'Екзотичне поєднання ніжного курячого м\'яса, солодкого ананаса, сиру та соусів.',
+        'Свинина Маленька': 'Соковита свинина з гриля, овочі, та фірмовий соус у хрусткому лаваші.',
+        'Свинина Середня': 'Класична шаурма зі свининою, капустою, морквою та нашим кращим соусом.',
+        'Свинина Велика': 'Велика порція соковитої свинини, щедро приправлена овочами та соусом.',
+        'Французький хот-дог': 'Класична баварська сосиска в хрусткій французькій булочці з гірчицею та кетчупом.',
+        'Хот-дог «2000-х»': 'Смак дитинства: сосиска, морква по-корейськи, капуста та багато соусу.',
+        'Картопля фрі (170 г)': 'Золотиста картопелька фрі, хрустка зовні та ніжна всередині.',
+        'Гарячий шоколад (з маршмелоу)': 'Густий, насичений гарячий шоколад з ніжними маршмелоу.',
+    };
+
+    const categoryDescriptions = {
+        'shawarma': 'Соковите м\'ясо, свіжі овочі та наш фірмовий соус, загорнуті у свіжий лаваш.',
+        'hotdogs': 'Гаряча сосиска в ідеальній булочці з фірмовими соусами.',
+        'fastfood': 'Гарячий, хрусткий снек — ідеальний до улюбленого напою.',
+        'pizza': 'Свіжа, ароматна випічка — як вдома.',
+        'drinks': 'Освіжаючий напій, що ідеально втамовує спрагу.'
+    };
+
+    const categoryAddons = {
+        'shawarma': [
+            { name: 'Сир', price: 25 },
+            { name: 'Гриби', price: 25 },
+            { name: 'Ананас', price: 25 },
+            { name: 'Кукурудза', price: 25 },
+            { name: 'Картопля фрі', price: 25 }
+        ],
+        'hotdogs': [
+            { name: 'Сир', price: 20 },
+            { name: 'Халапеньйо', price: 15 },
+            { name: 'Бекон', price: 20 }
+        ],
+        'fastfood': [
+            { name: 'Сирний соус', price: 15 },
+            { name: 'Кетчуп', price: 15 }
+        ]
+    };
+
+    const productDescriptionEl = document.getElementById('product-description');
+    const addonsListContainer = document.getElementById('addons-list-container');
 
     function openProductDialog(name, price, category) {
         currentProduct = { name, basePrice: price, category };
         currentQty = 1;
         productTitle.textContent = name;
-        productImage.src = category === 'pizza' ? 'assets/pizza.webp' : 'assets/food-platter.webp';
+
+        // Find exact image or fallback
+        const match = menuImageMap.find(([label]) => name.includes(label));
+        productImage.src = match ? `assets/${match[1]}` : (category === 'pizza' ? 'assets/pizza.webp' : 'assets/food-platter.webp');
         productImage.alt = `${name} — фото страви КОСМОС`;
+
         productPriceDisplay.textContent = price;
         productQtyDisplay.textContent = currentQty;
 
-        addonsCheckboxes.forEach(cb => cb.checked = false);
+        // Description
+        const exactDesc = Object.entries(itemDescriptions).find(([key]) => name.includes(key));
+        productDescriptionEl.textContent = exactDesc ? exactDesc[1] : (categoryDescriptions[category] || '');
 
-        // Добавки з меню призначені лише для шаурми.
-        addonsSection.style.display = category === 'shawarma' ? 'block' : 'none';
+        // Generate Addons
+        addonsListContainer.innerHTML = '';
+        const addons = categoryAddons[category];
+        if (addons && addons.length > 0) {
+            addonsSection.style.display = 'block';
+            addons.forEach((addon, idx) => {
+                const label = document.createElement('label');
+                label.className = 'addon-label';
+                label.innerHTML = `
+                    <span class="addon-label-inner">
+                        <input type="checkbox" name="addon" value="${addon.name}" data-price="${addon.price}">
+                        ${addon.name}
+                    </span>
+                    <span class="addon-price">+${addon.price} ₴</span>
+                `;
+                addonsListContainer.appendChild(label);
+            });
+            // Re-select checkboxes
+            addonsCheckboxes = document.querySelectorAll('input[name="addon"]');
+            addonsCheckboxes.forEach(cb => cb.addEventListener('change', updateProductTotal));
+        } else {
+            addonsSection.style.display = 'none';
+            addonsCheckboxes = [];
+        }
 
         updateProductTotal();
         productDialog.showModal();
@@ -160,8 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const total = (currentProduct.basePrice + addonsTotal) * currentQty;
         productTotalPriceDisplay.textContent = total;
     }
-
-    addonsCheckboxes.forEach(cb => cb.addEventListener('change', updateProductTotal));
 
     document.getElementById('product-qty-minus').addEventListener('click', () => {
         if (currentQty > 1) {
