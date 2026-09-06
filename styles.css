@@ -183,9 +183,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .footer-telegram span { display: inline-block; margin-right: .25rem; }
 .map-card { min-height: 180px; padding: 1.5rem; border: 1px solid var(--accent-cyan); border-radius: 14px; display: flex; flex-direction: column; justify-content: flex-end; gap: .25rem; background: radial-gradient(circle at 75% 20%, rgba(224,36,177,.28), transparent 35%), linear-gradient(145deg, #111b2a, #10131e 70%); box-shadow: 0 0 28px rgba(0,229,255,.1); transition: transform .2s, box-shadow .2s; }
 .map-card:hover { transform: translateY(-3px); box-shadow: 0 0 34px rgba(0,229,255,.22); }
-.map-card > span:not(.map-pin) { color: var(--text); font-weight: 900; font-size: 1.4rem; text-transform: uppercase; }
-.map-card small { color: var(--text-muted); }
-.map-pin { color: var(--accent-yellow); font-size: 2.2rem; margin-bottom: auto; }
 @media (min-width: 700px) { .location-grid { grid-template-columns: 1.2fr .8fr; } }
 
 /* How to order */
@@ -412,7 +409,6 @@ body { background: var(--bg); }
     outline: 3px solid var(--accent-cyan);
     outline-offset: -3px;
 }
-.map-card-copy { pointer-events: none; position: relative; z-index: 2; }
 .sr-only {
     position: absolute;
     width: 1px;
@@ -445,42 +441,6 @@ body { background: var(--bg); }
     background: linear-gradient(180deg, rgba(8, 12, 16, .04) 35%, rgba(8, 12, 16, .72) 100%);
     pointer-events: none;
 }
-.map-preview-label {
-    position: absolute;
-    right: .85rem;
-    bottom: .75rem;
-    padding: .45rem .65rem;
-    border: 1px solid rgba(255,255,255,.32);
-    border-radius: 7px;
-    background: rgba(10, 14, 18, .78);
-    color: #fff;
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .02em;
-    text-transform: none;
-    pointer-events: none;
-}
-.map-card-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: .2rem;
-    padding: 1rem 1.25rem 1.15rem;
-}
-.map-card-copy > span:not(.map-pin) {
-    color: var(--text);
-    font-size: 1.3rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-.map-card-copy .map-pin {
-    margin: 0 0 .15rem;
-    font-size: 1.5rem;
-    line-height: 1;
-}
-.map-card-copy small { font-size: .82rem; }
-.map-card:hover .map-preview-label { background: var(--accent-cyan); color: var(--bg); border-color: var(--accent-cyan); }
-
 @media (max-width: 699px) {
     .map-preview { height: 175px; }
 }
