@@ -9,6 +9,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const chips = document.querySelectorAll('.chip');
     const menuItems = document.querySelectorAll('.menu-item');
 
+    const menuImageMap = [
+        ['Куряча Маленька', 'shawarma-chicken-small.webp'],
+        ['Куряча Середня', 'shawarma-chicken-medium.webp'],
+        ['Куряча Велика', 'shawarma-chicken-large.webp'],
+        ['Куряча Гавайська', 'shawarma-hawaiian.webp'],
+        ['Свинина', 'shawarma-pork.webp'],
+        ['Французький', 'hotdog.webp'],
+        ['Хот-дог', 'hotdog.webp'],
+        ['сосискою', 'hotdog.webp'],
+        ['сосисками', 'hotdog.webp'],
+        ['Баварський', 'hotdog.webp'],
+        ['Шаур-дог', 'hotdog.webp'],
+        ['Картопля фрі', 'fries.webp'],
+        ['Нагетси', 'nuggets.webp'],
+        ['Піца', 'pizza.webp'],
+        ['Сосиска в тісті', 'pastry.webp'],
+        ['Біляш', 'pastry.webp'],
+        ['Булочка', 'pastry.webp'],
+        ['Тертий пиріг', 'pastry.webp'],
+        ['Гарячий шоколад', 'hot-chocolate.webp'],
+        ['Bumble кава', 'hot-chocolate.webp'],
+        ['Голуба лагуна', 'lemonade.webp'],
+        ['Мохіто', 'lemonade.webp'],
+        ['Лимонад', 'lemonade.webp']
+    ];
+
+    menuItems.forEach(item => {
+        const match = menuImageMap.find(([label]) => item.dataset.name.includes(label));
+        if (!match) return;
+        const image = document.createElement('img');
+        image.className = 'menu-card-image';
+        image.src = `assets/${match[1]}`;
+        image.alt = `${item.dataset.name} — фото страви КОСМОС`;
+        image.loading = 'lazy';
+        item.prepend(image);
+    });
+
     const cartBtn = document.getElementById('cart-btn');
     const cartCount = document.getElementById('cart-count');
     const cartDialog = document.getElementById('cart-dialog');
