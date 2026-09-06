@@ -369,3 +369,36 @@ body { background: var(--bg); }
     .menu-item { min-height: 315px; padding-top: 12rem; }
     .menu-item::before { height: 10.75rem; }
 }
+
+/* Compact density pass: keep the menu above the fold */
+.hero { min-height: 500px; padding: 5.25rem 0 5.5rem; }
+.menu-section { padding: 3.75rem 0; }
+.menu-controls { margin-bottom: 1.25rem; padding: .7rem 0 .8rem; }
+.menu-grid { gap: .85rem; }
+.menu-item { min-height: 315px; padding-top: 12rem; }
+.menu-item::before { height: 10.75rem; }
+.gallery-section, .how-to-section, .location-section { padding-block: 3rem; }
+.gallery-grid-container { margin-top: 1rem; }
+.location-grid { gap: 1.25rem; }
+.steps-grid { gap: 1.25rem; margin-top: 1.75rem; }
+.site-footer { padding: 2.75rem 0; }
+
+@media (max-width: 767px) {
+    .hero { min-height: 430px; padding: 4rem 0 4.25rem; }
+    .hero h1 { font-size: clamp(2.35rem, 12vw, 3.5rem); margin-bottom: .75rem; }
+    .hero p { font-size: 1rem; margin-bottom: 1.25rem; }
+    .hero-actions { gap: .65rem; }
+    .menu-section { padding: 2.75rem 0; }
+    .menu-section h2 { margin-bottom: .35rem; }
+    .menu-controls { top: 61px; margin-bottom: .85rem; }
+    .menu-grid { gap: .65rem; }
+    .menu-item { min-height: 250px; padding: 8.6rem .75rem .75rem; }
+    .menu-item::before { height: 7.35rem; }
+    .gallery-section, .how-to-section, .location-section { padding-block: 2.5rem; }
+    .site-footer { padding: 2.25rem 0; }
+}
+
+@media (max-width: 420px) {
+    .menu-item { min-height: 285px; padding-top: 10.6rem; }
+    .menu-item::before { height: 9.5rem; }
+}
